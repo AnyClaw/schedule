@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="card-style.css">
+    <link rel="stylesheet" href="panel-style.css">
+     <style>
+        body {
+            background: rgb(37, 37, 37);
+        }
+     </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <div class="panel-parent">
+            <ul class="panel" style="padding: 0;">
+                <li>
+                    <button type="submit" name="increment" value="+">&lsaquo;</button>
+                </li>
+                <li class="panel-text">
+                    10.02 - 16.02<br>
+                    I неделя
+                </li>
+                <li>
+                    <button type="submit" name="decrement" value="-">&rsaquo;</button>
+                </li>
+            </ul>
+        </div>
+    </form>
+
+    <output id="schedule"></output>
+
+    <script>
+        var page = document.getElementById("schedule")
+
+        var subjects = [
+            "Математика", 
+            "Математика", 
+            "Физика",
+            "Основы Российской государственности"
+        ]
+        var teachers = [
+            "Антонова Е.В.",
+            "Антонова Е.В.",
+            "Касименко Л.М.",
+            "Рудыка Н.А."
+        ]
+        var classTypes = [
+            "Практическое&nbsp;занятие",
+            "Практическое&nbsp;занятие",
+            "Лекция",
+            "Лекция"
+        ]
+        var homeworks = [
+            "Дописать лекцию",
+            "Дописать лекцию",
+            "",
+            "Презентация \"Моя самоидентификация\""
+        ]
+        var times = ["08:30 - 09:50", "10:05 - 11:25", "11:40 - 13:00", "13:45 - 15:05"]
+
+        for (var i = 0; i < 4; i++) {
+            page.innerHTML += `
+                <div class="parent">
+                    <div class="content">
+                        <ul class="day-info">
+                            <li>
+                                <div class="text">
+                                    <div class="subject">${i + 1}.</div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="text">
+                                    <div class="subject">${subjects[i]} (${classTypes[i]})</div>
+                                    <div class="additions">${teachers[i]}</div>
+                                    <div class="additions homework">${homeworks[i] != "" ? "ДЗ: " + homeworks[i] : ""}</div>
+                                </div>
+                            </li>
+                            
+                            <li>
+                                <div class="text">
+                                    <div class="time">${times[i]}</div>
+                                </div>
+                            </li>
+                        </ul>   
+                    </div>
+                </div>
+            `
+        }
+    </script>
+</body>
+</html>

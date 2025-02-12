@@ -1,0 +1,31 @@
+.panel-parent {
+    display: flex;
+    justify-content: center;
+    color: rgb(192, 192, 192);
+}
+
+.panel {
+    width: 300px;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    background: rgb(68, 68, 68);
+    text-align: center;
+
+    button {
+        padding: 0;
+        width: 60px; 
+        height: 50px;
+        font-size: 25pt;
+        text-align: center;
+        background: rgb(68, 68, 68);
+        color: rgb(192, 192, 192);
+        border: none;
+    }
+}
+
+.panel-text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15pt;
+}

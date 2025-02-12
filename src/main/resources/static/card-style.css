@@ -1,0 +1,59 @@
+.parent {
+    display: flex;
+    justify-content: center;
+}
+
+.content {
+    border: 5px solid rgb(0, 189, 176); 
+    margin: 10px;
+    width: 600px;
+    border-radius: 10px;
+    padding: 10px 10px 10px 0;
+    transition: 0.3s all;
+}
+
+.content:hover {
+    transform: scale(1.1);
+    background: rgb(68, 68, 68);
+}
+
+li {
+    list-style-type: none;
+}
+
+.day-info {
+    display: grid;
+    grid-template-columns: 10% 65% 30%;
+}
+
+.text {
+    color: white;
+    display: inline-block;
+}
+
+.subject {
+    font-size: 20pt;
+}
+
+.additions {
+    margin-left: 35px;
+    font-size: 10pt;
+    font-style: italic;
+
+}
+
+.homework {
+    color: gray;
+    margin-left: 20px;
+}
+
+.time {
+    font-size: 20px;
+}
+
+.week {
+    text-align: center;
+    text-decoration: underline;
+    font-weight: bold;
+    font-size: 10pt;
+}
