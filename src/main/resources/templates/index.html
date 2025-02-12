@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
@@ -34,31 +34,11 @@
     <script>
         var page = document.getElementById("schedule")
 
-        var subjects = [
-            "Математика", 
-            "Математика", 
-            "Физика",
-            "Основы Российской государственности"
-        ]
-        var teachers = [
-            "Антонова Е.В.",
-            "Антонова Е.В.",
-            "Касименко Л.М.",
-            "Рудыка Н.А."
-        ]
-        var classTypes = [
-            "Практическое&nbsp;занятие",
-            "Практическое&nbsp;занятие",
-            "Лекция",
-            "Лекция"
-        ]
-        var homeworks = [
-            "Дописать лекцию",
-            "Дописать лекцию",
-            "",
-            "Презентация \"Моя самоидентификация\""
-        ]
-        var times = ["08:30 - 09:50", "10:05 - 11:25", "11:40 - 13:00", "13:45 - 15:05"]
+        var subjects = "[[${subjects}]]".replace('[', '').replace(']', '').split(',');
+        var teachers = "[[${teachers}]]".replace('[', '').replace(']', '').split(',');
+        var lessonsTypes = "[[${lessonsTypes}]]".replace('[', '').replace(']', '').split(',');
+        var homeworks = "[[${homeworks}]]".replace('[', '').replace(']', '').split(',');
+        var times = "[[${times}]]".replace('[', '').replace(']', '').split(',');
 
         for (var i = 0; i < 4; i++) {
             page.innerHTML += `
@@ -73,7 +53,7 @@
 
                             <li>
                                 <div class="text">
-                                    <div class="subject">${subjects[i]} (${classTypes[i]})</div>
+                                    <div class="subject">${subjects[i]} (${lessonsTypes[i]})</div>
                                     <div class="additions">${teachers[i]}</div>
                                     <div class="additions homework">${homeworks[i] != "" ? "ДЗ: " + homeworks[i] : ""}</div>
                                 </div>
@@ -90,5 +70,4 @@
             `
         }
     </script>
-</body>
 </html>
