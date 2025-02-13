@@ -34,11 +34,11 @@
     <script>
         var page = document.getElementById("schedule")
 
-        var subjects = "[[${subjects}]]".replace('[', '').replace(']', '').split(',');
-        var teachers = "[[${teachers}]]".replace('[', '').replace(']', '').split(',');
-        var lessonsTypes = "[[${lessonsTypes}]]".replace('[', '').replace(']', '').split(',');
-        var homeworks = "[[${homeworks}]]".replace('[', '').replace(']', '').split(',');
-        var times = "[[${times}]]".replace('[', '').replace(']', '').split(',');
+        var subjects = "[[${subjects}]]".replace('[', '').replace(']', '').split(', ');
+        var teachers = "[[${teachers}]]".replace('[', '').replace(']', '').split(', ');
+        var lessonsTypes = "[[${lessonsTypes}]]".replace('[', '').replace(']', '').split(', ');
+        var homeworks = "[[${homeworks}]]".replace('[', '').replace(']', '').split(', ');
+        var times = "[[${times}]]".replace('[', '').replace(']', '').split(', ');
 
         for (var i = 0; i < 4; i++) {
             page.innerHTML += `
@@ -53,7 +53,7 @@
 
                             <li>
                                 <div class="text">
-                                    <div class="subject">${subjects[i]} (${lessonsTypes[i]})</div>
+                                    <div class="subject">${subjects[i]} <br> (${lessonsTypes[i]})</div>
                                     <div class="additions">${teachers[i]}</div>
                                     <div class="additions homework">${homeworks[i] != "" ? "ДЗ: " + homeworks[i] : ""}</div>
                                 </div>
