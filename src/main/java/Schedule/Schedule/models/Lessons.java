@@ -1,22 +1,25 @@
 package Schedule.Schedule.models;
 
-public class CardData {
-    public String subjectName;
+import org.springframework.data.annotation.Id;
+
+public class Lessons {
+    @Id
+    public int lessonNumber;
+
+    public String lessonName;
     public String teacherName;
     public String lessonType;
     public String homework;
-    public String time;
 
-    public CardData(String subjectName, String teacherName, String lessonType, String homework, String time) {
-        this.subjectName = subjectName;
+    public Lessons(String lessonName, String teacherName, String lessonType, String homework) {
+        this.lessonName = lessonName;
         this.teacherName = teacherName;
         this.lessonType = lessonType;
         this.homework = homework;
-        this.time = time;
     }
 
-    public static CardData[] initTestDatas() {
-        CardData[] datas = new CardData[4];
+    public static Lessons[] initTestDatas() {
+        Lessons[] datas = new Lessons[4];
 
         var subjects = new String[] {
             "Математика", 
@@ -42,10 +45,9 @@ public class CardData {
             "",
             "Презентация \"Моя самоидентификация\""
         };
-        var times = new String[] {"08:30 - 09:50", "10:05 - 11:25", "11:40 - 13:00", "13:45 - 15:05"};
 
         for (int i = 0; i < datas.length; i++) {
-            datas[i] = new CardData(subjects[i], teachers[i], lessonsTypes[i], homeworks[i], times[i]);
+            datas[i] = new Lessons(subjects[i], teachers[i], lessonsTypes[i], homeworks[i]);
         }
 
         return datas;

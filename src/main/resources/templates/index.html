@@ -40,7 +40,7 @@
         var homeworks = "[[${homeworks}]]".replace('[', '').replace(']', '').split(', ');
         var times = "[[${times}]]".replace('[', '').replace(']', '').split(', ');
 
-        for (var i = 0; i < 4; i++) {
+        for (var i = 0; i < subjects.length; i++) {
             page.innerHTML += `
                 <div class="parent">
                     <div class="content">
