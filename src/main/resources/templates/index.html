@@ -16,14 +16,17 @@
         <div class="panel-parent">
             <ul class="panel" style="padding: 0;">
                 <li>
-                    <button type="submit" name="increment" value="+">&lsaquo;</button>
+                    <button type="submit" name="value" value="-">&lsaquo;</button>
                 </li>
                 <li class="panel-text">
-                    10.02 - 16.02<br>
-                    I неделя
+                    <div id="weekInfo"></div>
+                    <script>
+                        var weekNumber = "[[${weekNumber}]]";
+                        document.getElementById("weekInfo").innerHTML += `10.02 - 16.02<br>${weekNumber} неделя`;
+                    </script>
                 </li>
                 <li>
-                    <button type="submit" name="decrement" value="-">&rsaquo;</button>
+                    <button type="submit" name="value" value="+">&rsaquo;</button>
                 </li>
             </ul>
         </div>
@@ -34,11 +37,13 @@
     <script>
         var page = document.getElementById("schedule")
 
+        var lessonsNumber = "[[${number}]]".replace('[', '').replace(']', '').split(', ');
         var subjects = "[[${subjects}]]".replace('[', '').replace(']', '').split(', ');
         var teachers = "[[${teachers}]]".replace('[', '').replace(']', '').split(', ');
         var lessonsTypes = "[[${lessonsTypes}]]".replace('[', '').replace(']', '').split(', ');
         var homeworks = "[[${homeworks}]]".replace('[', '').replace(']', '').split(', ');
         var times = "[[${times}]]".replace('[', '').replace(']', '').split(', ');
+        var weekNumber = "[[${weekNumber}]]";
 
         for (var i = 0; i < subjects.length; i++) {
             page.innerHTML += `
@@ -47,7 +52,7 @@
                         <ul class="day-info">
                             <li>
                                 <div class="text">
-                                    <div class="subject">${i + 1}.</div>
+                                    <div class="subject">${lessonsNumber[i]}.</div>
                                 </div>
                             </li>
 
@@ -61,7 +66,7 @@
                             
                             <li>
                                 <div class="text">
-                                    <div class="time">${times[i]}</div>
+                                    <div class="time">${times[lessonsNumber[i] - 1]}</div>
                                 </div>
                             </li>
                         </ul>   
