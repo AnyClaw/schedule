@@ -56,7 +56,7 @@ function displayWeekInfo(lessons) {
         }
     }
 
-    var weekPanel = document.getElementById("weekInfo").innerHTML += `10.02 - 16.02<br>${weekNumber} неделя`;
+    document.getElementById("weekInfo").innerHTML += `10.02 - 16.02<br>${weekNumber} неделя`;
 }
 
 document.addEventListener('DOMContentLoaded', fetchLessons);
